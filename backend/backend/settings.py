@@ -1,3 +1,7 @@
+"""Django settings for the Taski project.
+
+This module contains configuration settings for the Django application.
+"""
 import os
 from pathlib import Path
 

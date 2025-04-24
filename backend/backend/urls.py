@@ -1,3 +1,7 @@
+"""URL configuration for the Taski project.
+
+This module defines the URL patterns for the Django application.
+"""
 from api import views
 from django.contrib import admin
 from django.urls import include, path
