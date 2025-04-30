@@ -1,3 +1,7 @@
+volumes:
+  pg_data_production:
+  static_volume:
+
 services:
   db:
     image: postgres:13.10
@@ -8,20 +12,17 @@ services:
     image: yakovenkomm/taski_backend
     env_file: .env
     volumes:
-      - /var/www/taski/static:/backend_static
+      - static_volume:/backend_static
   frontend:
     image: yakovenkomm/taski_frontend
     env_file: .env
     command: cp -r /app/build/. /frontend_static/
     volumes:
-      - /var/www/taski/static:/frontend_static
+      - static_volume:/frontend_static
   gateway:
     image: yakovenkomm/taski_gateway
     env_file: .env
     volumes:
-      - /var/www/taski/static:/staticfiles/
+      - static_volume:/staticfiles/
     ports:
-      - "8000:80"
-
-volumes:
-  pg_data_production:
+      - 8000:80
